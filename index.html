@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Preview and Payment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>THE Video</h1>
+        <!-- Video preview -->
+        <video width="1080" height="720" controls poster="/Users/sadidrahimi/Desktop/boilerroom/rain.jpg" id="video-preview">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <h2>Buy this now</h2>
+        <button id="checkout-button">Pay safe and securely with Stripe</button>
+    </div>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="script.js"></script>
+    <script>
+        // Pause the video after 3 seconds
+        document.addEventListener("DOMContentLoaded", function() {
+            var video = document.getElementById('video-preview');
+            video.play(); // Start playing the video
+            video.addEventListener('timeupdate', function() {
+                if (video.currentTime >= 3) {  // Jump to the start of the video when it reaches 3 seconds
+                    video.currentTime = 0;                                       
+    
+                }
+
+            });
+        });
+    </script>
+</body>
+</html>
